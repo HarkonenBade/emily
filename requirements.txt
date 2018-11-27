@@ -1,0 +1,5 @@
+git+https://github.com/Rapptz/discord.py.git@rewrite#egg=discord.py
+requests
+agithub
+-e git+https://github.com/HarkonenBade/ao3.git@multi-author#egg=ao3
+html2text
