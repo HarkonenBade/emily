@@ -28,7 +28,7 @@ class Manage:
         """
         Get a log of what has changed in Emily
         """
-        status, commits = GitHub().repos.harkonenbade.yutu.commits.get(per_page=10)
+        status, commits = GitHub().repos.harkonenbade.emily.commits.get(per_page=10)
         if status == 200:
             await ctx.send(content="```Changelog:\n{}```".format("\n".join(["- {}".format(c['commit']['message'])
                                                                             for c in commits])))
