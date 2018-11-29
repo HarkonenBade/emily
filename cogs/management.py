@@ -35,3 +35,10 @@ class Manage:
         else:
             await ctx.send(content="Error: Cannot reach github")
 
+    @commands.command(hidden=True)
+    @can_manage()
+    async def prune(self, ctx: commands.Context):
+        async with ctx.typing():
+            async for message in ctx.history(limit=None):
+                if not message.pinned:
+                    await message.delete()
