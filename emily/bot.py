@@ -26,6 +26,11 @@ class Emily(commands.Bot):
         self.owner_id = (await self.application_info()).owner.id
         await self.pm_owner(content="Emily starting up")
 
+    async def on_member_join(self, member):
+        chan = member.guild.system_channel
+        if chan is not None:
+            chan.send(content="Welcome to the She-ra fan server {0}! Please take a look in #rules to familiarize yourself with the server rules. #role_requests can be used to set your roles on the server, if you type `~help selfmanagement` I will show you the commands you can use to set your own roles. We hope you have a fun time here!".format(member.mention))
+
     async def pm_owner(self, *args, **kwargs):
         owner = self.get_user(self.owner_id)
         await owner.send(*args, **kwargs)
