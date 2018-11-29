@@ -10,6 +10,10 @@ I'm still learning so sorry if I do something wrong.
 You can ask my programmer @Harkonen if you want to know more about me.
 """
 
+WELCOME_TEXT = """
+Welcome to the She-ra fan server {0}!Please take a look in #rules to familiarize yourself with the server rules. #role_requests can be used to set your roles on the server, if you type `~help selfmanagement` I will show you the commands you can use to set your own roles. We hope you have a fun time here!
+"""
+
 class Emily(commands.Bot):
     def __init__(self):
         super().__init__(commands.when_mentioned_or("~"),
@@ -29,7 +33,7 @@ class Emily(commands.Bot):
     async def on_member_join(self, member):
         chan = member.guild.system_channel
         if chan is not None:
-            await chan.send(content="Welcome to the She-ra fan server {0}! Please take a look in #rules to familiarize yourself with the server rules. #role_requests can be used to set your roles on the server, if you type `~help selfmanagement` I will show you the commands you can use to set your own roles. We hope you have a fun time here!".format(member.mention))
+            await chan.send(content=WELCOME_TEXT.format(member.mention))
 
     async def pm_owner(self, *args, **kwargs):
         owner = self.get_user(self.owner_id)
