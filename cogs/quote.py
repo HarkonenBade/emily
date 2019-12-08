@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Quote:
+class Quote(commands.Cog):
     @commands.command()
     async def quote(self, ctx: commands.Context, user: discord.Member, *, identifier=None):
         """

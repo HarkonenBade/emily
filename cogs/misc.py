@@ -11,7 +11,7 @@ import ao3
 import html2text
 
 
-class Misc:
+class Misc(commands.Cog):
     def format_ao3(self, work):
         def make_link(elm):
             return "[{}]({})".format(elm,
